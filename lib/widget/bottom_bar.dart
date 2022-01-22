@@ -45,24 +45,26 @@ class BottomBar extends StatelessWidget {
                       alignment: Alignment.center,
                       children: <Widget>[
                         Container(
-                            width: 35,
-                            height: 35,
-                            margin: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 4,
-                                  spreadRadius: 5,
-                                  offset: Offset(-2, 2),
-                                )
-                              ],
-                            ),
-                            child: CachedNetworkImage(
-                              imageUrl: cartItems.values.toList()[index].imgUrl,
-                              fit: BoxFit.cover,
-                            )),
+                          width: 35,
+                          height: 35,
+                          margin: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(
+                                  cartItems.values.toList()[index].imgUrl,
+                                )),
+                            borderRadius: BorderRadius.circular(100),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black54,
+                                blurRadius: 4,
+                                spreadRadius: 5,
+                                offset: Offset(-2, 2),
+                              )
+                            ],
+                          ),
+                        ),
                         Positioned(
                             right: 2,
                             bottom: 5,
